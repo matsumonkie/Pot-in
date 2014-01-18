@@ -1,0 +1,11 @@
+fr:
+  errors:
+    messages:
+      not_saved: "Sauvegarde échoué"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              too_short: "Votre mot de passe est trop court"      
