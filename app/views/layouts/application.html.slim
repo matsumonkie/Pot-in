@@ -14,12 +14,17 @@ html
           span.icon-bar
         a.navbar-brand href="#" Valet
       .navbar-collapse.collapse
-        .nav.navbar-nav
+        ul.nav.navbar-nav
           li.active
             a href="#" = t'menu.home'
           li
             a href="#about" = t'menu.about'
           li
             a href="#contact" = t'menu.contact'
-
- 
+        ul.nav.navbar-nav.navbar-right
+          li
+            a href="#" = t'menu.sign-in'
+          li
+            a href="#" = t'menu.subscribe'
+  .container
+    == yield

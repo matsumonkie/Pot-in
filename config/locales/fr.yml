@@ -3,4 +3,5 @@ fr:
     home: "Accueil"
     about: "A propos"
     contact: "Contact"
-  
+    sign-in: "Connexion"
+    subscribe: "Inscription"    
