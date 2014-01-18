@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  menu:
+    home: "Home"
   hello: "Hello world"
