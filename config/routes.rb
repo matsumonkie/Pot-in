@@ -3,6 +3,7 @@ Valet::Application.routes.draw do
   resources :homes
 
   devise_for :users
+
   root 'home#index'
 
   resources :users

@@ -9,27 +9,34 @@ html
       .container
         .header
           ul.nav.nav-pills.pull-right
-            li
-              a href="#" = t'ui.about'
-            li
-              a href="#" = t'ui.sign-in'
-            li.active
-              a href="#" = t'ui.connexion'
+            - if user_signed_in?
+              li
+                a href="#" = t'ui.about'
+              li
+                a href="#" = t'ui.log-out'
+            - else
+              li
+                a href="#" = t'ui.sign-in'
+              li.active
+                a href="#" = t'ui.connexion'
           h3.text-muted Valet
 
       /BODY
       .container
         .jumbotron
-          h2 = t'ui.catch-line' 
+          h2 = t'ui.catch-line'
           p.lead = t'ui.description'
-  
+
+          == yield
+
         p.notice = notice
         p.alert  = alert
+
 
     /FOOTER
     #footer
       .container
         p.text-muted
           a href="#" = t'ui.contact'
-  
-    = javascript_include_tag 'application'    
+
+    = javascript_include_tag 'application'

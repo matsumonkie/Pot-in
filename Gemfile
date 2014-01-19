@@ -16,6 +16,7 @@ gem 'uglifier',               '~> 1.3'
 group :development do
   gem 'awesome_print',        '~> 1.2'
   gem 'better_errors',        '~> 1.1'
+  gem 'binding_of_caller'
   gem 'hirb',                 '~> 0.7'
 # gem 'pry-rails',            '~> 0.3'
   gem 'quiet_assets',         '~> 1.0'
