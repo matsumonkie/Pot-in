@@ -1,8 +1,12 @@
 fr:
   ui:
-    home: "Accueil"
-    about: "A propos"
-    contact: "Contact"
-    log-in: "Connexion"
-    sign-in: "Inscription"
-    contact: "Contact"
+    home: Accueil
+    about: A propos
+    contact: Contact
+    log-in: Connexion
+    sign-in: Inscription
+    contact: Contact
+    catch-line: Valet, à votre service !
+    description: |
+      Valet est un service qui vous permet de tenir les comptes entre vos vous et vos amis.
+      Plus besoin de se souvenir "qui doit combien à qui ?". Valet s'occupe de tout !
