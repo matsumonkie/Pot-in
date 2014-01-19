@@ -10,15 +10,11 @@ html
         .header
           ul.nav.nav-pills.pull-right
             - if user_signed_in?
-              li
-                a href="#" = t'ui.about'
-              li
-                a href="#" = t'ui.log-out'
+              li: a[href="#"]                         = t'ui.about'
+              li: a[href = destroy_user_session_path] = t'ui.log-out'
             - else
-              li
-                a href="#" = t'ui.sign-in'
-              li.active
-                a href="#" = t'ui.connexion'
+              li: a[href="#"]        = t'ui.sign-in'
+              li.active: a[href="#"] = t'ui.connexion'
           h3.text-muted Valet
 
       /BODY
@@ -37,6 +33,6 @@ html
     #footer
       .container
         p.text-muted
-          a href="#" = t'ui.contact'
+          a[href="#"] = t'ui.contact'
 
     = javascript_include_tag 'application'
