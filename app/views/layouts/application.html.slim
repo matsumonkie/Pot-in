@@ -2,19 +2,20 @@ doctype html
 html
   head
     = stylesheet_link_tag 'application'
-  body
+    = csrf_meta_tags
+body
     #wrap
 
       /HEADER
       .container
         .header
           ul.nav.nav-pills.pull-right
+            li = link_to t('ui.about')
             - if user_signed_in?
-              li: a[href="#"]                         = t'ui.about'
-              li: a[href = destroy_user_session_path] = t'ui.log-out'
+              li = link_to t('ui.log-out'), destroy_user_session_path, method: :delete
             - else
-              li: a[href="#"]        = t'ui.sign-in'
-              li.active: a[href="#"] = t'ui.connexion'
+              li = link_to t('ui.sign-in')
+              li.active = link_to t('ui.log-in')
           h3.text-muted Valet
 
       /BODY
