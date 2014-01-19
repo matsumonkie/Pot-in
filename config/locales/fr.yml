@@ -1,7 +1,8 @@
 fr:
-  menu:
+  ui:
     home: "Accueil"
     about: "A propos"
     contact: "Contact"
-    sign-in: "Connexion"
-    subscribe: "Inscription"
+    log-in: "Connexion"
+    sign-in: "Inscription"
+    contact: "Contact"
