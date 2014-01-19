@@ -1,1 +1,5 @@
-h1 home
+- if user_signed_in?
+  h1 Home
+- else
+  h2 = t'ui.catch-line'
+  p.lead = t'ui.description'
