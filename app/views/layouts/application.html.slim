@@ -12,11 +12,12 @@ body
           ul.nav.nav-pills.pull-right
             li = link_to t('ui.about'), root_path
             - if user_signed_in?
+              li = link_to t('ui.profile'), user_path(current_user.id)
               li.active = link_to t('ui.log-out'), destroy_user_session_path, method: :delete
             - else
               li        = link_to t('ui.sign-in'), new_user_registration_path
               li.active = link_to t('ui.log-in'), new_user_session_path
-          h3.text-muted Valet
+          h3.text-muted = link_to Valet, root_path
 
       /BODY
       .container
