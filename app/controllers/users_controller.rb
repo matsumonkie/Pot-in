@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
-    redirect_to user_path(id: current_user.id) unless current_user.id == 1
+    if current_user.is_admin
+      @users = User.all
+    else
+      redirect_to user_path(id: current_user.id)
+    end
   end
 
   def show    
