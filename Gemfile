@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'activeadmin'           ,github: 'gregbell/active_admin'
 gem 'bootstrap-sass'        ,'~> 3.0'
 gem 'coffee-rails'          ,'~> 4.0'
 gem 'devise'                ,'~> 3.2'
