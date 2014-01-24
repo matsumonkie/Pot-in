@@ -2,11 +2,11 @@ p#notice = notice
 
 p
   strong Firstname:
-  = @user.firstname
+  = current_user.firstname
 p
   strong Lastname:
-  = @user.lastname
+  = current_user.lastname
 
-= link_to 'Edit', edit_user_path(@user)
+= link_to 'Edit', edit_user_path(current_user)
 '|
 = link_to 'Back', users_path
