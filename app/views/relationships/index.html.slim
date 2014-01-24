@@ -1,0 +1,18 @@
+h1 Relationships
+
+table
+  tr
+    th
+    th
+    th
+
+  - @relationships.each do |relationship|
+    tr
+      td = relationship.contact.firstname
+      td = relationship.contact.lastname      
+      td = link_to 'Edit', edit_user_relationship_path(current_user, relationship)
+      td = link_to 'Destroy', user_relationship_path(current_user, relationship), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Relationship', new_user_relationship_path

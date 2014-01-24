@@ -1,0 +1,15 @@
+= form_for [current_user, @relationship], as: :relationship do |f|
+  - if @relationship.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@relationship.errors.count, "error")} prohibited this relationship from being saved:"
+      ul
+        - @relationship.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :relation_type
+    = f.text_field :relation_type
+  .field
+    = f.label :contact_id
+    = f.text_field :contact_id   
+  .actions = f.submit 'Save'

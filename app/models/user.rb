@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :relationships
-  has_many :contacts, :through => :relationships  
+  has_many :contacts, :through => :relationships
 end
