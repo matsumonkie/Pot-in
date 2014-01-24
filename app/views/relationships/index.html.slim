@@ -6,13 +6,17 @@ table
     th
     th
 
-  - @relationships.each do |relationship|
+  - @relationships.group_by { |r| r.relation_type }.each do |relation_type, relations|
     tr
-      td = relationship.contact.firstname
-      td = relationship.contact.lastname      
-      td = link_to 'Edit', edit_user_relationship_path(current_user, relationship)
-      td = link_to 'Destroy', user_relationship_path(current_user, relationship), data: {:confirm => 'Are you sure?'}, :method => :delete
-
+      td = relation_type
+    - relations.each do |relation|
+      tr
+        td = relation.contact.firstname
+        td = relation.contact.lastname      
+        td = link_to 'Edit', edit_user_relationship_path(current_user, relation)
+        td = link_to 'Destroy', user_relationship_path(current_user, relation), data: {:confirm => 'Are you sure?'}, :method => :delete
+    
+    
 br
 
 = link_to 'New Relationship', new_user_relationship_path
