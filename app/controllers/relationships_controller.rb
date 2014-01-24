@@ -1,4 +1,6 @@
 class RelationshipsController < SignedInController
+  nested_belongs_to :user
+
   private
   
   def permitted_params
