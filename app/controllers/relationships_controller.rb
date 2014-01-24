@@ -1,0 +1,3 @@
+class RelationshipsController < SignedInController
+  
+end
