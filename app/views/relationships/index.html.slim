@@ -1,16 +1,10 @@
 h1 Relationships
 
-table
-  tr
-    th
-    th
-    th
-
-  - @relationships.each do |relation_type, relations|
-    tr
-      td = relation_type
+- @relationships.each do |relation_type, relations|
+  h3 = relation_type
+  table.table
     - relations.each do |relation|
-      tr
+      tr.tr_stripped
         td = relation.contact.firstname
         td = relation.contact.lastname      
         td = link_to 'Edit', edit_user_relationship_path(current_user, relation)
