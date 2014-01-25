@@ -7,8 +7,8 @@ h1 Relationships
       tr.tr_stripped
         td = relation.contact.firstname
         td = relation.contact.lastname      
-        td = link_to 'Edit', edit_user_relationship_path(current_user, relation)
-        td = link_to 'Destroy', user_relationship_path(current_user, relation), data: {:confirm => 'Are you sure?'}, :method => :delete
+        td.icon-edit = link_to t('actions.edit'), edit_user_relationship_path(current_user, relation)
+        td.icon-delete = link_to t('actions.delete'), user_relationship_path(current_user, relation), data: {:confirm => 'Are you sure?'}, :method => :delete
     
     
 br
