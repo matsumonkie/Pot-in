@@ -6,7 +6,7 @@ table
     th
     th
 
-  - @relationships.group_by { |r| r.relation_type }.each do |relation_type, relations|
+  - @relationships.each do |relation_type, relations|
     tr
       td = relation_type
     - relations.each do |relation|
