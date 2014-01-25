@@ -1,5 +1,5 @@
 class UsersController < SignedInController
-  actions :except => [:create]
+  actions :except => [:create, :index]
 
   private
 
