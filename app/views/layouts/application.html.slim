@@ -20,13 +20,17 @@ body
               li.active = link_to t('ui.log-in'),         new_user_session_path
           h3.text-muted = link_to Valet,                  root_path
 
+      /FLASH
+      .container
+        - if notice
+          .alert.alert-success = notice
+        - if alert
+          .alert.alert-danger = alert          
+
       /BODY
       .container
         .jumbotron
           == yield
-
-        p.notice = notice
-        p.alert  = alert
 
     /FOOTER
     #footer
