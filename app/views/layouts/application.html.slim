@@ -22,10 +22,11 @@ body
 
       /FLASH
       .container
-        - if notice
-          .alert.alert-success = notice
-        - if alert
-          .alert.alert-danger = alert          
+        .flash-notice "coucou"
+        - if flash[:notice]
+          .flash-notice = flash[:notice]
+        - if flash[:error]
+          .flash-error = flash[:error]
 
       /BODY
       .container

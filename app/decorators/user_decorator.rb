@@ -9,5 +9,8 @@ class UserDecorator < Draper::Decorator
   #       object.created_at.strftime("%a %m/%d/%y")
   #     end
   #   end
+  def formatted_name
+    [object.firstname, object.lastname].join('. ')
+  end
 
 end
