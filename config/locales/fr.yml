@@ -10,8 +10,8 @@ fr:
     catch-line: Valet, à votre service !
     profile: Profil
     description:
-      Valet vous permet de tenir les comptes entre vos vous et vos amis.
-      Plus besoin de se souvenir "Qui doit combien à qui ?". Valet s'occupe de tout !
+      Valet vous permet de tenir les comptes entre vous et vos amis.
+      Plus besoin de se souvenir *"Qui doit combien à qui ?"*. Valet s'occupe de tout !
   action:
     edit: Modifier
     delete: Supprimer
