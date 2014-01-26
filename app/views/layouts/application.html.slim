@@ -22,11 +22,10 @@ body
 
       /FLASH
       .container
-        .flash-notice "coucou"
         - if flash[:notice]
-          .flash-notice = flash[:notice]
+          .flash-notice = render_md flash[:notice]
         - if flash[:error]
-          .flash-error = flash[:error]
+          .flash-error = render_md flash[:error]
 
       /BODY
       .container

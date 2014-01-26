@@ -17,8 +17,8 @@ fr:
     delete: Supprimer
     create: Créer
   event:
-    success-add-user: "%{user_name} a été rajouté à vos contacts"
-    error-add-user: "L'utilisateur avec l'adresse mail %{user_email} n'existe pas" 
+    success-add-user: "**%{user_name}** a été rajouté à vos contacts"
+    error-add-user: "L'utilisateur avec l'adresse mail **%{user_email}** n'existe pas" 
   model:
     user:
       firstname: "Prénom"
