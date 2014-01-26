@@ -9,9 +9,13 @@ class RelationshipsController < SignedInController
   def create
     email = params[:email]
     unless email.blank?
+      relationtype = params[:relationship][:relation_type]
       user = User.where(email: email).first
       if user
-        flash[:notice] = t('event.success-add-user', user_name: user.decorate.formatted_name)
+        Relationship.create!(user_id: current_user.id,
+                             relation_type: relationtype,
+                             contact_id: user.id)        
+        flash[:notice] = t('event.success-add-user', user_name: user.decorate.fullname)
       else
         flash[:error] = t('event.error-add-user', user_email: email)
       end
