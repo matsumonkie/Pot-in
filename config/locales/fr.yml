@@ -14,8 +14,10 @@ fr:
       Plus besoin de se souvenir *"Qui doit combien à qui ?"*. Valet s'occupe de tout !
   action:
     edit: Modifier
+    update: Mettre à jour
     delete: Supprimer
     create: Créer
+    cancel-account: Supprimer mon compte
   event:
     success-add-user: "**%{user_name}** a été rajouté à vos contacts"
     error-add-user: "L'utilisateur avec l'adresse mail **%{user_email}** n'existe pas" 
