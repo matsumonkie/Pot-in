@@ -6,7 +6,7 @@
       - relations.each do |relation|        
         .col-md-6 = relation.contact.fullname_or_email
         .col-md-6.text-right
-          a.icon-edit   [href=edit_user_relationship_path(current_user, relation)]
+          /a.icon-edit   [href=edit_user_relationship_path(current_user, relation)]
           a.icon-delete [href=user_relationship_path(current_user, relation) data-method="delete"]
 
 = link_to 'New Relationship', new_user_relationship_path
