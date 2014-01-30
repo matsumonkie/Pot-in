@@ -5,6 +5,9 @@ class RelationshipsController < SignedInController
     @relationships = Relationship.where(user_id: current_user).decorate.group_by(&:relation_type)
   end
 
+  def new
+  end
+
   def create
     email = params[:user][:email] if params[:user]
 
