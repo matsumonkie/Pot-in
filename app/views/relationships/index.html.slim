@@ -1,16 +1,12 @@
-h1 Relationships
-
-- @relationships.each do |relation_type, relations|
-  h3 = relation_type
-  table.custom_table
-    - relations.each do |relation|
-      tr.tr_stripped
-        td = relation.contact.firstname
-        td = relation.contact.lastname
-        td.text-right
+.container
+  - @relationships.each do |relation_type, relations|
+    .row
+      .col-md-6 = relation_type
+    .row
+      - relations.each do |relation|        
+        .col-md-6 = relation.contact.fullname_or_email
+        .col-md-6.text-right
           a.icon-edit   [href=edit_user_relationship_path(current_user, relation)]
-          a.icon-delete [href=user_relationship_path(current_user, relation) data-method="delete" ]
-    
-br
+          a.icon-delete [href=user_relationship_path(current_user, relation) data-method="delete"]
 
 = link_to 'New Relationship', new_user_relationship_path

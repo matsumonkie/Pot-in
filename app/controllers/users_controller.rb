@@ -2,7 +2,7 @@ class UsersController < SignedInController
 #  actions :except => [:create, :index]
 
   def update    
-    flash[:notice] = t('event.success-edit-user', user_name: current_user.decorate.fullname)
+    flash[:notice] = t('event.success-edit-user')
     update! { user_path }
   end
 

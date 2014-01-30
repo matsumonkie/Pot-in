@@ -15,14 +15,16 @@ fr:
   action:
     edit: Modifier
     edit-account: Modifier mon compte
+    add-contact: Ajouter le contact
     update: Mettre à jour
     delete: Supprimer
     create: Créer
     cancel-account: Supprimer mon compte
   event:
     success-add-user: "**%{user_name}** a été rajouté à vos contacts."
-    success-edit-user: "Votre profil a été mis à jour."
-    error-add-user: "L'utilisateur avec l'adresse mail **%{user_email}** n'existe pas." 
+    success-edit-user: "Votre profil a été mis à jour."    
+  error:
+    email-address-not-found: "L'utilisateur avec l'adresse mail **%{user_email}** n'existe pas."
   model:
     user:
       firstname: "Prénom"
