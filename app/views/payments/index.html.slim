@@ -1,0 +1,11 @@
+.container
+  - @payments.each do |payment|
+    .row
+      .col-md-6 = payment.contact.fullname_or_email
+      .col-md-2 = payment.amount
+      .col-md-4 = l(payment.created_at, format: :default)
+      .col-md-6.text-right
+        /a.icon-edit   [href=edit_user_relationship_path(current_user, relation)]
+        /a.icon-delete [href=user_relationship_path(current_user, relation) data-method="delete"]
+
+= link_to 'New Payment', new_user_payment_path(current_user), class: "green-button"

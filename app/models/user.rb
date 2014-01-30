@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :relationships
   has_many :contacts, :through => :relationships
+
+  has_many :payments
+  has_many :contact, :through => :payments
 end

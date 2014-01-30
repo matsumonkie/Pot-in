@@ -8,6 +8,7 @@ Valet::Application.routes.draw do
 
   resources :users do
     resources :relationships
+    resources :payments      
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,3 @@
+= simple_form_for :payment, url: user_payments_path(current_user) do |f|
+  = f.input :amount
+  = f.submit t('action.add-payment'), class: "green-button"

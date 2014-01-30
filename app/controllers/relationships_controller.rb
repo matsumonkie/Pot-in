@@ -3,13 +3,8 @@ class RelationshipsController < SignedInController
 
   def index    
     @relationships = Relationship.where(user_id: current_user).decorate.group_by(&:relation_type)
-#    @relationships = @relationships.decorate
   end
 
-  def new
-
-  end
-  
   def create
     email = params[:user][:email] if params[:user]
 

@@ -5,14 +5,26 @@ iori = User.create!(firstname: "Iori",
                     password: "12345678")
 jack = User.create!(firstname: "Jack",
                     lastname: "Raiden",
-                    email: "jack.raiden@gmail.com",
+                    email: "jack.raiden@mail.com",
                     password: "12345678")
 john = User.create!(firstname: "John",
                     lastname: "Doe",
-                    email: "john.doe@gmail.com",
+                    email: "john.doe@mail.com",
                     password: "12345678")
-
 # RELATIONSHIP
-Relationship.create!(user_id: jack.id,
+Relationship.create!(user_id: iori.id,
                      relation_type: "friend",
                      contact_id: john.id)
+Relationship.create!(user_id: iori.id,
+                     relation_type: "friend",
+                     contact_id: jack.id)
+# PAYMENTS
+Payment.create!(user_id: iori.id,
+                contact_id: jack.id,
+                amount: 10)
+Payment.create!(user_id: iori.id,
+                contact_id: jack.id,                 
+                amount: 15)                 
+Payment.create!(user_id: iori.id,
+                contact_id: jack.id,                 
+                amount: -5)         

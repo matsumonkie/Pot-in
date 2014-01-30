@@ -2,6 +2,7 @@ fr:
   ui:
     home: Accueil
     about: A propos
+    payments: Payments
     contact: Contact
     log-in: Connexion
     log-out: Déconnexion
@@ -16,6 +17,7 @@ fr:
     edit: Modifier
     edit-account: Modifier mon compte
     add-contact: Ajouter le contact
+    add-payment: Ajouter un payment
     update: Mettre à jour
     delete: Supprimer
     create: Créer
@@ -24,7 +26,10 @@ fr:
     success-add-user: "**%{user_name}** a été rajouté à vos contacts."
     success-edit-user: "Votre profil a été mis à jour."    
   error:
-    email-address-not-found: "L'utilisateur avec l'adresse mail **%{user_email}** n'existe pas."
+    email-address-not-found: "L'utilisateur avec l'adresse mail **%{user_email}** n'existe pas."  
+  time:
+    formats:
+      default: "%Hh%M - %d/%m"
   model:
     user:
       firstname: "Prénom"
