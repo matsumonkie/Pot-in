@@ -1,11 +1,11 @@
 .container
-  - @relationships.each do |relation_type, relations|
+  - grouped_relationships.each do |relation_type, relations|
     .row
-      .col-md-6 = relation_type
+      .col-md-6: b = relation_type
     .row
-      - relations.each do |relation|        
-        .col-md-6 = relation.contact.fullname_or_email
-        .col-md-6.text-right
+      - relations.each do |relation|
+        .col-md-5 = relation.contact.fullname_or_email
+        .col-md-5.text-right
           /a.icon-edit   [href=edit_user_relationship_path(current_user, relation)]
           a.icon-delete [href=user_relationship_path(current_user, relation) data-method="delete"]
 

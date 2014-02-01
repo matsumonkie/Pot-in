@@ -1,14 +1,19 @@
 class UsersController < SignedInController
-#  actions :except => [:create, :index]
-
+  expose(:user, attributes: :user_params)
+  
   def update    
-    flash[:notice] = t('event.success-edit-user')
-    update! { user_path }
+    if user.save
+      flash_notice t('event.success-edit-user')
+    else
+      flash_alert t('event.error-edit-user')
+    end
+
+    redirect_to action: :show
   end
 
   private
 
-  def permitted_params
-    params.permit(:user => [:firstname, :lastname])
+  def user_params
+    params.require(:user).permit(:firstname, :lastname)
   end
 end

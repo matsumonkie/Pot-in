@@ -1,4 +1,3 @@
-class SignedInController < InheritedResources::Base
+class SignedInController < ApplicationController
   before_action :authenticate_user!
-  actions :all
 end

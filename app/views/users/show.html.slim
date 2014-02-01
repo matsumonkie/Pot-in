@@ -1,4 +1,4 @@
-= simple_form_for(current_user, url: user_path(current_user), html: { method: :put }) do |f|
+= simple_form_for user, url: user_path(user), html: { method: :put } do |f|
   = f.input :firstname
   = f.input :lastname
   = f.input :email, disabled: true
