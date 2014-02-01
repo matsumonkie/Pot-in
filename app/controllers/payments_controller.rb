@@ -5,12 +5,18 @@ class PaymentsController < SignedInController
     @payments = current_user.payments.decorate.sort_by { |payment| - payment[:id] }
   end
 
-  def new
+  def create
+    amount = params[:payment][:amount].to_f
+    amount = amount * -1 unless params[:is_buyer]
+    recipient = params[:payment][:user]
+    Payment.create(user_id: current_user.id, contact_id: recipient, amount: amount)
+    
+    redirect_to action: :index
   end
 
   private
   
   def permitted_params
-    #params.permit(:relationship => [:email])
+    params.permit(:is_buyer, :payment => [:amount, :user])
   end  
 end

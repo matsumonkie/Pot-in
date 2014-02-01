@@ -1,3 +1,9 @@
-= simple_form_for :payment, url: user_payments_path(current_user) do |f|
-  = f.input :amount
+= simple_form_for :payment, url: user_payments_path(current_user), defaults: { input_html: { class: 'form-inline' } } do |f|
+  .form-group
+    .col-xs-5.col-sm-5.col-md-5.col-lg-5.control-label.text-right
+      label.control-label.float Je
+    .col-xs-5.col-sm-5.col-md-5.col-lg-5.controls
+      input.switch-large [type='checkbox' name='is_buyer' value='true' checked data-on='success' data-off='danger' data-on-label='offre' data-off-label='dois']    
+  = f.input :amount, as: :float
+  = f.input :user, collection: current_user.contacts, include_blank: false, label_method: :firstname
   = f.submit t('action.add-payment'), class: "green-button"
