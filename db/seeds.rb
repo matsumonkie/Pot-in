@@ -18,7 +18,7 @@ Relationship.create!(user_id: iori.id,
 Relationship.create!(user_id: iori.id,
                      relation_type: "friend",
                      contact_id: jack.id)
-# PAYMENTS
+# PURCHASES
 Payment.create!(user_id: iori.id,
                 contact_id: jack.id,
                 amount: 10)
@@ -26,5 +26,18 @@ Payment.create!(user_id: iori.id,
                 contact_id: jack.id,                 
                 amount: 15)                 
 Payment.create!(user_id: iori.id,
-                contact_id: jack.id,                 
-                amount: -5)         
+                contact_id: john.id,                 
+                amount: 5)
+
+# DEBTS
+Payment.create!(user_id: jack.id,
+                contact_id: iori.id,
+                amount: 2)
+Payment.create!(user_id: john.id,
+                contact_id: iori.id,                 
+                amount: 3)                 
+Payment.create!(user_id: john.id,
+                contact_id: iori.id,                 
+                amount: 4)
+
+
