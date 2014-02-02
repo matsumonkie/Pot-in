@@ -4,8 +4,9 @@
       .col-md-6: b = relation_type
     .row
       - relations.each do |relation|
-        .col-md-5 = relation.contact.fullname_or_email
-        .col-md-5.text-right
+        .col-md-4 = relation.contact.fullname_or_email
+        .col-md-4 = relation.balance
+        .col-md-4.text-center
           /a.icon-edit   [href=edit_user_relationship_path(current_user, relation)]
           a.icon-delete [href=user_relationship_path(current_user, relation) data-method="delete"]
 
