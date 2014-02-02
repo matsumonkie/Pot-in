@@ -1,4 +1,5 @@
 class PaymentDecorator < Draper::Decorator
   delegate_all
-  decorates_association :contact 
+  decorates_association :creditor
+  decorates_association :debitor
 end

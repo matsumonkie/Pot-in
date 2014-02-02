@@ -1,8 +1,12 @@
 .container
   - sorted_payments.each do |payment|
     .row
-      .col-md-6 = payment.contact.fullname_or_email
-      .col-md-2 = payment.amount
+      - if payment.is_debt?(current_user)
+        .col-md-6 = payment.creditor.fullname_or_email
+        .col-md-2 = payment.amount * -1
+      - else
+        .col-md-6 = payment.debitor.fullname_or_email
+        .col-md-2 = payment.amount
       .col-md-3 = l(payment.created_at, format: :default)
       .col-md-1.text-right
         /a.icon-edit   [href=edit_user_relationship_path(current_user, relation)]

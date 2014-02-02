@@ -1,7 +1,10 @@
 class PaymentsController < SignedInController
   expose(:payment, attributes: :payment_params)
+  expose(:debts)
+  expose(:purchases)
   expose(:sorted_payments) {
-    current_user.payments.order('created_at desc').decorate
+    sorted_payments = current_user.payments.sort_by { |p| p.created_at }.reverse!
+    PaymentDecorator.decorate_collection(sorted_payments)
   }
    
   def create

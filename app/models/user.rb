@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   has_many :creditors, through: :purchases, source: :contact
   has_many :debtors, through: :debts, source: :user
 
-  has_many :debts, class_name: 'Payment', foreign_key: :contact_id
-  has_many :purchases, class_name: 'Payment'
+  has_many :debts, class_name: 'Payment', foreign_key: :debitor_id
+  has_many :purchases, class_name: 'Payment', foreign_key: :creditor_id
 
   def payments
     debts + purchases
