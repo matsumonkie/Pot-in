@@ -12,4 +12,12 @@ module ApplicationHelper
       truth || File.exists?("#{script}#{extension}")
     end
   end
+
+  def stylesheet_exists?(stylesheet)
+    stylesheet = "#{Rails.root}/app/assets/stylesheets/#{params[:controller]}.css"
+    available_extensions = %w[.sass .scss] + [""]
+    available_extensions.inject(false) do |truth, extension|
+      truth || File.exists?("#{stylesheet}#{extension}")
+    end
+  end
 end
