@@ -39,3 +39,5 @@ body
           a[href="#"] = t'ui.contact'
 
     = javascript_include_tag 'application'
+    = javascript_include_tag params[:controller] if script_exists?(params[:controller])
+
