@@ -2,6 +2,7 @@ doctype html
 html
   head
     = stylesheet_link_tag 'application'
+    = stylesheet_link_tag params[:controller] if stylesheet_exists?(params[:controller])
     = csrf_meta_tags
 body
     #wrap
@@ -40,4 +41,3 @@ body
 
     = javascript_include_tag 'application'
     = javascript_include_tag params[:controller] if script_exists?(params[:controller])
-
