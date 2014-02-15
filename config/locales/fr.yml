@@ -36,6 +36,9 @@ fr:
   time:
     formats:
       default: "%Hh%M - %d/%m"
+  date:
+    formats:
+      default: "%Hh%M - %d/%m"
   model:
     user:
       firstname: "Prénom"

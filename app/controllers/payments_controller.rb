@@ -2,9 +2,9 @@ class PaymentsController < SignedInController
   expose(:payment, attributes: :payment_params)
   expose(:debts)
   expose(:purchases)
-  expose(:sorted_payments) {
-    sorted_payments = current_user.payments.sort_by { |p| p.created_at }.reverse!
-    PaymentDecorator.decorate_collection(sorted_payments)
+  expose(:payments_by_date) {
+    payments = PaymentDecorator.decorate_collection(Payment.all)
+    payments.group_by { |p| p.created_at.to_date }
   }
    
   def create
@@ -17,9 +17,9 @@ class PaymentsController < SignedInController
       creditor_id, debitor_id = debitor_id, creditor_id
     end
     
-    Payment.create!(creditor_id: creditor_id,
-                    debitor_id: debitor_id,
-                    amount: amount)
+    success = Payment.create!(creditor_id: creditor_id,
+                              debitor_id: debitor_id,
+                              amount: amount)
     
     flash_notice(t('event.success-add-payment',
                  buy_or_own: payed_by_me ? t('action.offered') : t('action.owned'),
