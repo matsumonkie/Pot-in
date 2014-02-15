@@ -9,7 +9,7 @@ namespace :potin do
       contacts.each do |contact|
         credits = Payment.where(creditor_id: user.id, debitor_id: contact.id).pluck(:amount).sum
         debits  = Payment.where(creditor_id: contact.id, debitor_id: user.id).pluck(:amount).sum
-        account = Account.create(user_id: user.id, contact_id: contact.id, balance: credits + debits)
+        account = Account.create(user_id: user.id, contact_id: contact.id, balance: credits - debits)
       end
     end
   end
