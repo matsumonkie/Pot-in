@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   expose(:accounts) {
-    AccountDecorator.decorate_collection(current_user.accounts)
+    accounts = current_user.accounts.sort_by { |a| a.contact.firstname }
+    AccountDecorator.decorate_collection(accounts)
   }
-  
 end
