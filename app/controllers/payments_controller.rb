@@ -9,14 +9,23 @@ class PaymentsController < SignedInController
    
   def create
     payed_by_me = params[:payed_by_me]
-    signed_amount = if payed_by_me then payment.amount else payment.amount * -1 end
-    Payment.create!(user_id: current_user.id, contact_id: payment.contact_id, amount: signed_amount)
-
+    debitor_id = params[:payment][:debitor]    
+    creditor_id = current_user.id
+    amount = params[:amount]
+    
+    unless payed_by_me
+      creditor_id, debitor_id = debitor_id, creditor_id
+    end
+    
+    Payment.create!(creditor_id: creditor_id,
+                    debitor_id: debitor_id,
+                    amount: amount)
+    
     flash_notice(t('event.success-add-payment',
-                 buy_or_own: payed_by_me ? t('action.buy') : t('action.own'),
+                 buy_or_own: payed_by_me ? t('action.offered') : t('action.owned'),
                  determinant: payed_by_me ? t('common.to') : t('common.from'),
-                 value: payment.amount,
-                 user_name: User.find(payment.contact_id).firstname))
+                 value: amount,
+                 user_name: (payed_by_me ? User.find(debitor_id) : User.find(creditor_id)).firstname))
     
     redirect_to action: :index
   end
@@ -30,6 +39,6 @@ class PaymentsController < SignedInController
   private
   
   def payment_params
-    params.require(:payment).permit(:amount, :contact_id)
+    params.require(:payment).permit(:amount, :debitor, :payed_by_me)
   end  
 end
