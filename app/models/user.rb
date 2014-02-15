@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :debts, class_name: 'Payment', foreign_key: :debitor_id
   has_many :purchases, class_name: 'Payment', foreign_key: :creditor_id
 
+  has_many :accounts
+
   def payments
     debts + purchases
   end

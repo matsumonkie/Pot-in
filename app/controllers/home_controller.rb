@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
-  def index
-  end
+  expose(:accounts) {
+    AccountDecorator.decorate_collection(current_user.accounts)
+  }
+
 end
