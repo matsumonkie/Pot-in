@@ -22,8 +22,10 @@ fr:
     delete: Supprimer
     create: Créer
     cancel-account: Supprimer mon compte
-    buy: offert
-    own: reçus
+    offered: offert
+    owned: reçus
+    offer: J'offre
+    own: Je dois
   event:
     success-add-user: "**%{user_name}** a été rajouté à vos contacts."
     success-add-payment: "Vous avez %{buy_or_own} **%{value}** %{determinant} **%{user_name}**."
@@ -39,5 +41,6 @@ fr:
       firstname: "Prénom"
       lastname: "Nom"
   common:
+    i: Je
     from: de
     to: à
