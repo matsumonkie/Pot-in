@@ -3,7 +3,7 @@ class PaymentsController < SignedInController
   expose(:debts)
   expose(:purchases)
   expose(:payments_by_date) {
-    payments = PaymentDecorator.decorate_collection(Payment.all)
+    payments = PaymentDecorator.decorate_collection(Payment.of_current_month)
     payments.group_by { |p| p.created_at.to_date }
   }
    
