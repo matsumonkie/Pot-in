@@ -20,13 +20,12 @@ class PaymentsController < SignedInController
     success = Payment.create!(creditor_id: creditor_id,
                               debitor_id: debitor_id,
                               amount: amount)
-    
-    flash_notice(t('event.success-add-payment',
-                 buy_or_own: payed_by_me ? t('action.offered') : t('action.owned'),
-                 determinant: payed_by_me ? t('common.to') : t('common.from'),
-                 value: amount,
-                 user_name: (payed_by_me ? User.find(debitor_id) : User.find(creditor_id)).firstname))
-    
+    if payed_by_me
+      flash_notice(t('event.success-add-credit', value: amount, user_name: User.find(debitor_id).firstname))
+    else
+      flash_notice(t('event.success-add-debt', value: amount, user_name: User.find(creditor_id).firstname))
+    end
+          
     redirect_to action: :index
   end
 

@@ -22,13 +22,12 @@ fr:
     delete: Supprimer
     create: Créer
     cancel-account: Supprimer mon compte
-    offered: offert
-    owned: reçus
     offer: J'offre
     own: Je dois
   event:
     success-add-user: "**%{user_name}** a été rajouté à vos contacts."
-    success-add-payment: "Vous avez %{buy_or_own} **%{value}** %{determinant} **%{user_name}**."
+    success-add-credit: "Vous avez offert **%{value}** à **%{user_name}**."
+    success-add-debt:  "Vous devez **%{value}** à **%{user_name}**."
     success-delete-payment: "Transaction supprimée"
     success-edit-user: "Votre profil a été mis à jour."    
   error:
