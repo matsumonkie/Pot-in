@@ -5,6 +5,7 @@
 - else
   - accounts.each do |account|
     .row
-      - account_container = (account.negative?) ? "red-button" : "green-button"
-      button class="#{account_container} account-balance" type="button"
-        = "#{account.contact.fullname_or_email} #{account.balance}"
+      .col-md-6.col-md-offset-3
+        - account_container = (account.negative?) ? "red-button" : "green-button"      
+        button class="#{account_container} account-balance btn-block" type="button"
+          = "#{account.contact.fullname_or_email} #{account.balance}"
