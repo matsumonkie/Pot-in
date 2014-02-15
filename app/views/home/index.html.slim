@@ -1,7 +1,11 @@
+.container
 - if !user_signed_in?
   h2 = t'ui.catch-line'
   p.lead = render_md(t'ui.description')
 - else
   - accounts.each do |account|
-    p = account.contact.fullname_or_email
-    p = account.balance
+    .row
+      - account_container = (account.negative?) ? "negative_account_container" : "positive_account_container"
+      div class="#{account_container}"
+        .col-md-6.text-right = account.contact.fullname_or_email
+        .col-md-2 = account.balance
