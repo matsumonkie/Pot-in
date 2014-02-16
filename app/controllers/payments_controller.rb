@@ -2,9 +2,13 @@ class PaymentsController < SignedInController
   expose(:payment, attributes: :payment_params)
   expose(:debts)
   expose(:purchases)
+  expose(:payments) { current_user.payments }
+
   expose(:payments_by_date) {
-    payments = PaymentDecorator.decorate_collection(Payment.of_current_month)
-    payments.group_by { |p| p.created_at.to_date }
+    beginning_of_month = Date.today.beginning_of_month
+    ps = payments.cmap { |p| p if p.of_current_month?(beginning_of_month) }
+    ps = PaymentDecorator.decorate_collection(ps)
+    ps.group_by { |p| p.created_at.to_date }
   }
 
   def create
@@ -33,7 +37,7 @@ class PaymentsController < SignedInController
   end
 
   def destroy
-    #update_account_balance(creditor_id, debitor_id, amount)
+    update_account_balance(debitor_id, creditor_id, amount)
     flash_notice t('event.success-delete-payment')
     payment.destroy
     redirect_to action: :index

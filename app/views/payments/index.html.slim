@@ -1,15 +1,11 @@
 .container
   - payments_by_date.each do |date, payments|
     .row
-      .col-md-12 = l(date, format: :default)
+      b.col-md-12 = l(date, format: :default)
     - payments.each do |payment|
-      .row
-        - if payment.is_debt?(current_user)
-          .col-md-6 = payment.creditor.fullname_or_email
-          .col-md-2 = payment.amount * -1
-        - else
-          .col-md-6 = payment.debitor.fullname_or_email
-          .col-md-2 = payment.amount
+      .row.payment-status
+        .col-md-6.text-right = payment.contact(current_user).fullname_or_email
+        .col-md-1.text-right = payment.decorated_amount(current_user)
         .col-md-1.text-right
           /a.icon-edit   [href=edit_user_relationship_path(current_user, relation)]
           a.icon-delete [href=user_payment_path(current_user, payment) data-method="delete"]
