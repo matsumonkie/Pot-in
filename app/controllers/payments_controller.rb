@@ -2,11 +2,12 @@ class PaymentsController < SignedInController
   expose(:payment, attributes: :payment_params)
   expose(:debts)
   expose(:purchases)
-  expose(:payments) { current_user.payments }
+  #expose(:payments) {  }
 
   expose(:payments_by_date) {
     beginning_of_month = Date.today.beginning_of_month
-    ps = payments.cmap { |p| p if p.of_current_month?(beginning_of_month) }
+    ps = current_user.payments
+    ps = ps.cmap { |p| p if p.of_current_month?(beginning_of_month) }
     ps = PaymentDecorator.decorate_collection(ps)
     ps.group_by { |p| p.created_at.to_date }
   }
